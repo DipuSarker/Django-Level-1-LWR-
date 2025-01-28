@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">MyApp</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/about">About Us <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>{{title}}</h1>
+                <p class="lead">{{content1}}</p>
+                <p class="lead">{{content1|cut:"W"}}</p>
+                <p class="lead">{{content1|truncatewords:4}}</p>
+                <p class="lead">{{content1|truncatechars:4}}</p>
+                <p>{{content2|upper}}</p>
+                <p>{{content3|lower}}</p>
+                <p>{{content3|wordcount}}</p>
+                <p>{{content3|title}}</p>
+
+                {% comment %} Number {% endcomment %}
+                <h3>{{number}}</h3>
+                <h3>{{number|floatformat:2}}</h3>
+                <h3>{{number|add:200}}</h3>
+                <h4>{{9|divisibleby:3}}</h4>
+
+                {% comment %} List {% endcomment %}
+                <h5>{{my_list}}</h5>
+                <h5>{{my_list|length}}</h5>
+                <h5>{{my_list|first}}</h5>
+                <h5>{{my_list|last}}</h5>
+                <h5>{{my_list|join:", "}}</h5>
+                <h5>{{my_list|slice:3}}</h5>
+<hr>
+                {% comment %} Datetime {% endcomment %}
+                <h6>{{my_date}}</h6>
+                <h6>{{my_date|date:"Y-d-m"}}</h6>
+                <h6>{{my_date|timeuntil}}</h6>
+                <h6>{{my_date|timesince}}</h6>
+
+                <hr>
+
+                {% comment %} Escape Filter  {% endcomment %}
+                <h3>{{mystring|escapejs}}</h3>
+                <h3>{{my_html|force_escape}}</h3>
+                <h3>{{my_html|safe}}</h3>
+
+                <hr>
+
+                {% comment %} Conditional Filter  {% endcomment %}
+
+                <h2>{{my_var}}</h2>
+                <h2>{{my_var|default:"No data found"}}</h2>
+                <h2>{{my_var|default_if_none:"No data found"}}</h2>
+                <h2>{{isBD|yesno:"Yes,No,MayBe"}}</h2>
+
+                <hr>
+                {% comment %} Dictionary Filter {% endcomment %}
+
+                <h2>{{my_dict}}</h2>
+                <h2>{{my_dict| dictsort:'age'}}</h2>
+                <h2>{{my_dict| dictsortreversed:"age"}}</h2>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <span class="text-muted">© 2023 MyApp. All rights reserved.</span>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
